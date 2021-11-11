@@ -51,10 +51,12 @@ exports.pens_list = async function (req, res) {
 exports.pens_view_all_Page = async function (req, res) {
     try {
         thepens = await pens.find();
+        res.render('pens', { title: 'pens Search Results', results: thepens });
         res.render('pens', {
             title: 'pens Search Results',
             results: thepens
         });
+        res.end;
     } catch (err) {
         res.status(500);
         res.send(`{"error": ${err}}`);

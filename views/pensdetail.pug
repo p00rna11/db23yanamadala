@@ -1,0 +1,38 @@
+extends layout
+
+block content
+ h1= title
+
+  if(toShow == null)
+    h2 No instance to detail
+  else
+    - let pensid = toShow._id
+    - let pens_type = toShow.pens_type
+    - let pensquantity = toShow.quantity
+    - let penscost = toShow.cost
+    - let actionid = "/resource/pens/" + pensid
+    script let actionid = "#{actionid}"
+    div
+    div.row
+    div(class='pensAttr mr-3') pens ID is: 
+      span(style="color:red") #{pensid}
+    div.row
+    div(class='pensAttr mr-3') pens Type is: 
+      span(style="color:red") #{pens_type}
+    div.row
+    div(class='pensAttr mr-3') pens Quantity is: 
+      span(style="color:red") #{pensquantity}
+    div.row
+    div(class='pensAttr mr-3') pens Cost is:
+      span(style="color:red") #{penscost}
+    button(class="btn btn-primary m-2" onclick="detailOnid()") Goback
+    button(class="btn btn-danger m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+    // Go back to the home page for the pens collection
+    window.location.href='/pens'
+    }
+    function detailOnid() {
+    window.location.href='/pens'
+    }

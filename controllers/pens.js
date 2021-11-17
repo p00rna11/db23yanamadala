@@ -35,7 +35,7 @@ exports.pens_update_put = function (req, res) {
     res.send('NOT IMPLEMENTED: pens update PUT' + req.params.id);
 };
 
-// List of all penss
+// List of all pens
 exports.pens_list = async function (req, res) {
     try {
         thepens = await pens.find();
@@ -62,8 +62,6 @@ exports.pens_view_all_Page = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
-
-
 // for a specific pens. 
 exports.pens_detail = async function(req, res) { 
     console.log("detail"  + req.params.id) 
@@ -75,9 +73,6 @@ exports.pens_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 };
-
-
-
 //Handle pens update form on PUT. 
 exports.pens_update_put = async function(req, res) { 
     console.log(`update on id ${req.params.id} with body 
@@ -101,5 +96,61 @@ ${JSON.stringify(req.body)}`)
 failed`); 
     } 
 }; 
+
+// Handle a show one view with id specified by query
+exports.pens_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await Gas.findById( req.query.id)
+    res.render('gasdetail',
+   { title: 'pens Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
+
+// Handle building the view for creating a pens.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.pens_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('penscreate', { title: 'pens Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
+// Handle building the view for updating a pens.
+// query provides the id
+exports.pens_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await pens.findById(req.query.id)
+    res.render('pensupdate', { title: 'pens Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
+// Handle a delete one view with id from query
+exports.pens_delete_Page = async function(req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try{
+    result = await pens.findById(req.query.id)
+    res.render('pensdelete', { title: 'Pens Delete', toShow:
+   result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
+
+
 
 

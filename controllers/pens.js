@@ -27,9 +27,17 @@ exports.pens_create_post = async function (req, res) {
     }
 };
 // Handle pens delete form on DELETE.
-exports.pens_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: pens delete DELETE ' + req.params.id);
-};
+exports.pens_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await pens.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+   };
 // Handle pens update form on PUT.
 exports.pens_update_put = function (req, res) {
     res.send('NOT IMPLEMENTED: pens update PUT' + req.params.id);
@@ -101,8 +109,8 @@ failed`);
 exports.pens_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
     try{
-    result = await Gas.findById( req.query.id)
-    res.render('gasdetail',
+    result = await pens.findById( req.query.id)
+    res.render('pensdetail',
    { title: 'pens Detail', toShow: result });
     }
     catch(err){

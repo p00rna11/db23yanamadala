@@ -3,7 +3,9 @@ extends layout
 block content
  h1= title
 
-  
+  if(toShow == null)
+    h2 No instance to detail
+  else
     - let pensid = toShow._id
     - let pens_name = toShow.pens_name
     - let penstype = toShow.type
@@ -16,9 +18,9 @@ block content
       span(style="color:red") #{pensid}
     div.row
     div(class='pensAttr mr-3') pens Type is: 
-      span(style="color:red") #{pens_name}
+      span(style="color:red") #{pens_type}
     div.row
-    div(class='pensAttr mr-3') pens Quantity is: 
+    div(class='pensAttr mr-3') pens type is: 
       span(style="color:red") #{penstype}
     div.row
     div(class='pensAttr mr-3') pens Cost is:

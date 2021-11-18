@@ -74,7 +74,7 @@ exports.pens_view_all_Page = async function (req, res) {
 exports.pens_detail = async function(req, res) { 
     console.log("detail"  + req.params.id) 
     try { 
-        result = await pens.findById( req.params.id) 
+        result = await pens.findById(req.params.id) 
         res.send(result) 
     } catch (error) { 
         res.status(500) 

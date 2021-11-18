@@ -3,10 +3,7 @@ var router = express.Router();
 const pens_controller = require('../controllers/pens');
 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('pens', { title: 'Search Results Pens' })
-});
+
 /* GET detail pens page */
 router.get('/detail', pens_controlers.pens_view_one_Page);
 /* GET create pens page */

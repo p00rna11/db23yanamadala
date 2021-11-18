@@ -14,9 +14,9 @@ exports.pens_create_post = async function (req, res) {
     // We are looking for a body, since POST does not have query parameters.
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
-    // {"pens_type":"regular", "quantity":13, "cost":43.56}
+    // {"pens_type":"regular", "type":13, "cost":43.56}
     document.pens_type = req.body.pens_type;
-    document.quantity = req.body.quantity;
+    document.type = req.body.type;
     document.cost = req.body.cost;
     try {
         let result = await document.save();
@@ -109,7 +109,7 @@ failed`);
 exports.pens_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
     try{
-    result = await pens.findById( req.query.id)
+    result = await pens.findById(req.query.id)
     res.render('pensdetail',
    { title: 'pens Detail', toShow: result });
     }

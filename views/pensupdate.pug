@@ -7,8 +7,8 @@ block content
     h2 No instance to update
   else
     - let pensid = toShow._id
-    - let pens_type = toShow.pens_type
-    - let pensquantity = toShow.quantity
+    - let pens_name = toShow.pens_name
+    - let penstype = toShow.type
     - let penscost = toShow.cost
     - let actionid = "/resource/pens/" + pensid
     script let actionid = "#{actionid}"
@@ -19,22 +19,22 @@ block content
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
-          label.pensAttr(for='pens_type',class="col-form-label") pens type
+          label.pensAttr(for='pens_name',class="col-form-label") pens name
         div(class="col-auto")
-          input#pens_type(type='text', name='pens_type',class="form-control", value=pens_type)
+          input#pens_name(name='text', name='pens_name',class="form-control", value=pens_name)
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
-          label.pensAttr(for='quantity',class="col-form-label") pens quantity
+          label.pensAttr(for='type',class="col-form-label") pens type
         div(class="col-auto")
-          input#quantity(type='number', name='quantity',class="form-control", value=pensquantity)
+          input#type(name='number', name='type',class="form-control", value=penstype)
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
           label.pensAttr(for='cost',class="col-form-label") pens cost
         div(class="col-auto")
-          input#cost(type='number', name='cost',class="form-control", value=penscost)
-      input(class="btn btn-success m-2" type="submit")
+          input#cost(name='number', name='cost',class="form-control", value=penscost)
+      input(class="btn btn-success m-2" name="submit")
         //- button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
       button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
         

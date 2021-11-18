@@ -3,12 +3,10 @@ extends layout
 block content
  h1= title
 
-  if(toShow == null)
-    h2 No instance to detail
-  else
+  
     - let pensid = toShow._id
-    - let pens_type = toShow.pens_type
-    - let pensquantity = toShow.quantity
+    - let pens_name = toShow.pens_name
+    - let penstype = toShow.type
     - let penscost = toShow.cost
     - let actionid = "/resource/pens/" + pensid
     script let actionid = "#{actionid}"
@@ -18,10 +16,10 @@ block content
       span(style="color:red") #{pensid}
     div.row
     div(class='pensAttr mr-3') pens Type is: 
-      span(style="color:red") #{pens_type}
+      span(style="color:red") #{pens_name}
     div.row
     div(class='pensAttr mr-3') pens Quantity is: 
-      span(style="color:red") #{pensquantity}
+      span(style="color:red") #{penstype}
     div.row
     div(class='pensAttr mr-3') pens Cost is:
       span(style="color:red") #{penscost}

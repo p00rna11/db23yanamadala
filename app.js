@@ -19,20 +19,20 @@ async function recreateDB() {
   await pens.deleteMany();
   let instance1 = new
   pens({
-    pens_type: "ball",
-    quantity: 12,
+    pens_name: "Parker",
+    penstype: "ball",
     cost: 19.99
   });
   let instance2 = new
   pens({
-    pens_type: "fountain",
-    quantity: 8,
+    pens_name: "Reynolds",
+    penstype : "fountain",
     cost: 19.99
   });
   let instance3 = new
   pens({
-    pens_type: "handmade",
-    quantity: 12,
+    pens_name:"cello",
+    penstype: "handmade",
     cost: 29.99
   });  
   instance1.save(function (err, doc) {

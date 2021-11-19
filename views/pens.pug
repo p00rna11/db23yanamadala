@@ -1,30 +1,27 @@
 extends layout
 
 block content
-  div(class="container-fluid")
-    h1= title
-    
-  - let results=[{name:"parker",type:"handmade",cost:129},{name:"reynolds",type:"fountain",cost:57.39},{name:"montex",type:"ball pen",cost:39.99}] 
-    div(class="row")
-      each form,index in results
-        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{form.name}
-        br
-        br
-        br
-        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{form.type}
-        br
-        br
-        br
-        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{form.cost}
+  h1= title
+    //- - let items = ['pens_name','type','cost']
+  - let items = results;
+    div(class="container-fluid") 
+    div(class="row") 
+      each item in items   
+        div(class="row-sm-2", class="m-1") Item #{item.pens_name}-(#{item.penstype}) is #{item.cost} 
 
-  
-    script.
-     
-      function buy(itemNo)
-      {
-        alert(`You purchased Item ${itemNo+1}`)
-      }
- 
-
+  script.
+    function buy(x){
+      alert('purchased item ' + x)
+   } 
+    function dispatch(path){
+      window.location.href=path
+    }
+  div(class='container-fluid')
+    div(class='row')
+    div(class="row row-cols-1 row-cols-sm-4 g-6")
+      each o, index in items
+        div(class="card text-dark bg-warning mb-3" class='col' class='card' class='card-body' class='card-name' class='card-text' onclick='buy('+index+')') #{o}
+        
+        
 
   

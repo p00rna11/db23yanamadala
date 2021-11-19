@@ -8,7 +8,7 @@ block content
   else
     - let pensid = toShow._id
     - let pens_name = toShow.pens_name
-    - let penstype = toShow.type
+    - let penstype = toShow.penstype
     - let penscost = toShow.cost
     - let actionid = "/resource/pens/" + pensid
     script let actionid = "#{actionid}"
@@ -18,13 +18,13 @@ block content
       span(style="color:red") #{pensid}
     div.row
     div(class='pensAttr mr-3') pens Type is: 
-      span(style="color:red") #{pens_type}
+      span(style="color:red") #{pens_name}
     div.row
     div(class='pensAttr mr-3') pens type is: 
       span(style="color:red") #{penstype}
     div.row
     div(class='pensAttr mr-3') pens Cost is:
-      span(style="color:red") #{penscost}
+      span(style="color:red") #{cost}
     button(class="btn btn-primary m-2" onclick="detailOnid()") Goback
     button(class="btn btn-danger m-2" onclick="cancel()") Cancel
 

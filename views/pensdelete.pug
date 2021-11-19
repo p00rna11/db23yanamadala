@@ -7,9 +7,9 @@ block content
     h2 No instance to delete
   else
     - let pensid = toShow._id
-    - let pens_name = toShow.pens_name
-    - let penstype = toShow.type
-    - let penscost = toShow.cost
+    - let pens_type = toShow.pens_name 
+    - let pensquantity = toShow.penstype
+    - let penscost = toShow.penscost
     - let actionid = "/resource/pens/" + pensid
     script let actionid = "#{actionid}"
     div

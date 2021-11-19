@@ -1,34 +1,41 @@
 extends layout
 
 block content
-  h1= title
-
-  form(id='pensForm', action="/resource/pens", method="POST")
+ h1= title
+ form(id='pensForm', action="/resource/pens", method="POST")
     div.form-group
-        label.pensAttr(for='name') pens name
-        input#penstype(type='text', name='name')
+    div(class="row g-3 align-items-center")
+      div(class="col-1")
+         label.pensAttr(for='pens_name',class="col-form-label") pens name 
+      div(class="col-auto")
+         input#pens_name(type='text', name='pens_name',class="form-control")
     div.form-group
-        label.pensAttr(for='author') pens author
-        input#size(type='text', name='type')
+    div(class="row g-3 align-items-center")
+      div(class="col-1")
+         label.pensAttr(for='penstype', class="col-form-label") pens type
+      div(class="col-auto")
+         input#penstype(type='text', name='penstype',class="form-control")
     div.form-group
-        label.pensAttr(for='price') pens price
-        input#cost(type='number', name='price')
-    input(type="submit")
-
-  script.
+    div(class="row g-3 align-items-center")
+      div(class="col-1")
+         label.pensAttr(for='cost',class="col-form-label") pens cost
+      div(class="col-auto")
+         input#cost(type='number', name='cost',class="form-control")
+    input(type="submit",class="btn btn-primary")
+ script.
     document.forms['pensForm'].addEventListener('submit', (event) => {
-      event.preventDefault();
-      // TODO do something here to show user that form is being submitted
-      fetch(event.target.action, {
-        method: 'POST',
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-      }).then((resp) => {
-        return resp.json(); // or resp.text() or whatever the server sends
-      }).then((body) => {
-        alert("Save succeded")
-        // TODO handle body
-      }).catch((error) => {
-        // TODO handle error
-        alert("Save failed " + error )
-      });
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+    method: 'POST',
+    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+    return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+    alert("Save succeded")
+    // TODO handle body
+    }).catch((error) => {
+    // TODO handle error
+    alert("Save failed " + error )
+    });
     });

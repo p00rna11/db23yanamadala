@@ -1,25 +1,16 @@
 extends layout
 
 block content
-  h1= title  
-  p Welcome to #{title}
-
-  p PoornaChand local server 
-
-
-  button(type="button", class="btn btn-success" onclick="update()") Press Me
-  br    
-  
-  br
-  div(id="target") Display 
-   script.
-    var client_count=0
+  h1= title
+  p Welcome to #{title} dfd
+  button(type='button',onclick='update()',class='btn btn-primary') Press Me
+  div(id="target") text of Display 
+  script.
+    var client_count = 0;
     function update(){
-     client_count++;
-     document.getElementById("target").innerHTML=`value now ${client_count}`
-     }
-    br
-
-  a(href="pens") link to pens
+      client_count +=1;
+      document.getElementById("target").innerHTML = "Value now " + client_count;
+    }
+  a(href='pens') pens
 
   

@@ -20,8 +20,8 @@ async function recreateDB() {
   let instance1 = new
   pens({
     pens_name: "Parker",
-    penstype: "ball",
-    cost: 19.99
+    penstype: "fountain",
+    cost: 119.99
   });
   let instance2 = new
   pens({
@@ -32,7 +32,7 @@ async function recreateDB() {
   let instance3 = new
   pens({
     pens_name:"cello",
-    penstype: "handmade",
+    penstype: "ball",
     cost: 29.99
   });  
   instance1.save(function (err, doc) {

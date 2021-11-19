@@ -68,15 +68,6 @@ var resourceRouter = require('./routes/resource');
 
 var app = express();
 
-
-
-  app.use(require('express-session')({ 
-    secret: 'keyboard cat', 
-    resave: false, 
-    saveUninitialized: false 
-  }));
-  app.use(passport.initialize()); 
-  app.use(passport.session()); 
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
@@ -101,6 +92,14 @@ passport.use(new LocalStrategy(
       } 
       return done(null, user); 
     });
+    
+  app.use(require('express-session')({ 
+    secret: 'keyboard cat', 
+    resave: false, 
+    saveUninitialized: false 
+  }));
+  app.use(passport.initialize()); 
+  app.use(passport.session()); 
 
 
 

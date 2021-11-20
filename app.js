@@ -95,14 +95,15 @@ var app = express();
 }));
 app.use(cookieParser());
 
+app.use(require('express-session')({ 
+  secret: 'keyboard cat', 
+  resave: false, 
+  saveUninitialized: false 
+}));
+app.use(passport.initialize()); 
+app.use(passport.session()); 
     
-  app.use(require('express-session')({ 
-    secret: 'keyboard cat', 
-    resave: false, 
-    saveUninitialized: false 
-  }));
-  app.use(passport.initialize()); 
-  app.use(passport.session()); 
+  
 
 
 

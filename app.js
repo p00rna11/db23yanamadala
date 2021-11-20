@@ -91,7 +91,8 @@ passport.use(new LocalStrategy(
         return done(null, false, { message: 'Incorrect password.' }); 
       } 
       return done(null, user); 
-    });
+    }); 
+  }));
     
   app.use(require('express-session')({ 
     secret: 'keyboard cat', 
@@ -114,7 +115,7 @@ app.use('/', resourceRouter);
 // passport config 
 // Use the existing connection 
 // The Account model  
-var Account =require('./models/account')); 
+var Account =require('./models/account'); 
  
 passport.use(new LocalStrategy(Account.authenticate())); 
 passport.serializeUser(Account.serializeUser()); 

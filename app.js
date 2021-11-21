@@ -141,7 +141,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+
 
 var express = require('express'); 
 var passport = require('passport'); 
@@ -200,4 +200,5 @@ router.get('/ping', function(req, res){
     res.status(200).send("pong!"); 
 }); 
  
+module.exports = app;
 module.exports = router; 

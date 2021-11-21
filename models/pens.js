@@ -4,5 +4,4 @@ const pensSchema = mongoose.Schema({
     penstype: String,
     cost: Number
 })
-module.exports = mongoose.model("pens",
-    pensSchema)
+module.exports = mongoose.model("pens", pensSchema)

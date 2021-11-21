@@ -146,7 +146,7 @@ module.exports = app;
 var express = require('express'); 
 var passport = require('passport'); 
 var router = express.Router(); 
-var Account = require('../models/Account'); 
+var account = require('./models/account'); 
  
 router.get('/', function (req, res) { 
     res.render('index', { title: 'pens App', user : req.user }); 
@@ -157,7 +157,7 @@ router.get('/register', function(req, res) {
 }); 
  
 router.post('/register', function(req, res) { 
-  Account.findOne({ username : req.body.username },  
+  account.findOne({ username : req.body.username },  
     function(err, user) { 
       if(err) { 
         return res.render('register', { title: 'Registration',  

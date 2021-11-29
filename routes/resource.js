@@ -1,5 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport'); 
+var Account = require('../models/account'); 
+ 
+
+
+
 // Require controller modules.
 var api_controller = require('../controllers/api');
 var pens_controller = require('../controllers/pens');
@@ -17,4 +23,5 @@ router.put('/resource/pens/:id', pens_controller.pens_update_put);
 router.get('/resource/pens/:id', pens_controller.pens_detail);
 // GET request for list of all pens items.
 router.get('/resource/pens', pens_controller.pens_list);
+
 module.exports = router;

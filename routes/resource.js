@@ -3,9 +3,6 @@ var router = express.Router();
 var passport = require('passport'); 
 var Account = require('../models/account'); 
  
-
-
-
 // Require controller modules.
 var api_controller = require('../controllers/api');
 var pens_controller = require('../controllers/pens');

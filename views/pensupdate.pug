@@ -12,11 +12,13 @@ block content
     - let penstype = toShow.penstype
     - let penscost = toShow.cost
     - let actionid = "/resource/pens/" + pensid
+
     script let actionid = "#{actionid}"
     div.row(class='mb-2')
     div.mr-1 ID is 
       span(style="color:red")  #{pensid}
     form(id='pensForm', action= actionid, method="PUT")
+
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")

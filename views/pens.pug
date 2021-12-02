@@ -10,11 +10,23 @@ block content
     
       each item in items   
         - let destination = `dispatch(\"/pens/update?id=${item._id}\")` 
-            div(class="card  text-dark bg-warning col-md-7 mb-3" class='col' class='card' class='card-body' class='card-name' class='card-text' onclick='buy('+index+')') Item: #{item.pens_name} (#{item.penstype}) is #{item.cost} 
+        - let destination1 = `dispatch(\"/pens/create?id=${item._id}\")` 
+        - let destination2 = `dispatch(\"/pens/detail?id=${item._id}\")`
+        - let destination3 = `dispatch(\"/pens/delete?id=${item._id}\")`
+          
+        
+        div(class=" card text-dark bg-warning row-sm-2", class="m-1") Item: #{item.pens_name} pen (#{item.penstype}) price is #{item.cost} 
+          div(class='ml-1')
               button.btn( class="btn-primary col-md-3 ml-1", onclick= destination) Update 
+          div(class='ml-1')
+            button.btn( class="btn-primary col-md-3 ml-1", onclick= destination1) Create
+          div(class='ml-1')
+            button.btn( class="btn-primary col-md-3 ml-1", onclick= destination2) details
+          div(class='ml-1')
+            button.btn( class="btn-primary col-md-3 ml-1", onclick= destination3) delete
   
     
-        
+
 
   script.
     function buy(x){
